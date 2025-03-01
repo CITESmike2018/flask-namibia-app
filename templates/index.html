@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Namibia Desert Animal Identification</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script>
+        function showLoadingMessage() {
+            let messageDiv = document.getElementById("loadingMessage");
+            messageDiv.innerHTML = "Reading image ...";
+            setTimeout(() => {
+                messageDiv.innerHTML += "<br>Analyzing image ...";
+            }, 1000);
+            
+            // Hide all elements below the analyze button
+            document.getElementById("contentBelow").style.display = "none";
+        }
+    </script>
 </head>
 <body class="container mt-4">
-    <h1 class="text-center">Namibia Desert Animal Identification</h1>  <!-- Added Title -->
+    <h1 class="text-center">Namibia Desert Animal Identification</h1>
     <hr>
 
-    <form action="/" method="post" enctype="multipart/form-data">
+    <form action="/" method="post" enctype="multipart/form-data" onsubmit="showLoadingMessage()">
         <div class="mb-3">
             <label for="file" class="form-label"><strong>Upload an image:</strong></label>
             <input type="file" name="file" accept="image/*" class="form-control">
@@ -18,19 +30,23 @@
         <button type="submit" class="btn btn-primary">Analyze</button>
     </form>
 
-    {% if image_data %}
-        <h3 class="mt-4">Uploaded Image:</h3>
-        <img src="data:image/jpeg;base64,{{ image_data }}" alt="Uploaded Image" class="img-fluid">
-    {% endif %}
-
-    {% if extracted_info %}
-        <h3 class="mt-4">Extracted Information:</h3>
-        {{ extracted_info | safe }}
-    {% endif %}
-
-    {% if description %}
-        <h3 class="mt-4">Description:</h3>
-        <p>{{ description }}</p>
-    {% endif %}
+    <div id="loadingMessage" class="mt-3 text-primary"></div>
+    
+    <div id="contentBelow">
+        {% if image_data %}
+            <h3 class="mt-4">Uploaded Image:</h3>
+            <img src="data:image/jpeg;base64,{{ image_data }}" alt="Uploaded Image" class="img-fluid">
+        {% endif %}
+    
+        {% if extracted_info %}
+            <h3 class="mt-4">Extracted Information:</h3>
+            {{ extracted_info | safe }}
+        {% endif %}
+    
+        {% if description %}
+            <h3 class="mt-4">Description:</h3>
+            <p>{{ description }}</p>
+        {% endif %}
+    </div>
 </body>
 </html>
