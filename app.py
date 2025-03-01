@@ -5,7 +5,7 @@ import json
 import textwrap
 import pandas as pd
 import io
-import base64
+import base64   
 
 app = Flask(__name__)
 
@@ -38,7 +38,8 @@ def describe_image(image, api_key):
                     "Date": "2024-10-23",
                     "Time": "00:54:34"
                    }
-        If the total number of individuals is 0, then report Species as "None" and Count as 0.
+        If the total number of individuals is 0, then report Species as "None" and Count as 0. 
+        If the temperature, date, and time is missing report at "N/A". 
 
         In the "Description" section of the JSON include a short note (three sentences) on the description
         of the picture, including behavour of the aniamsls, temperature, date, and time. 
