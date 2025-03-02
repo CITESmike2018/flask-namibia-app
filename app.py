@@ -96,7 +96,21 @@ def index():
                     extracted_info = df.to_html(classes="table table-bordered table-striped table-sm text-end", index=False)
                     print("✅ Extracted features:", df)
 
-                description = textwrap.fill(data.get("Description", ""), width=80)
+                # Parse JSON dedescription
+                description = data.get("Description", "")
+
+                # If description is a list (e.g., multiple sentences returned by Gemini), 
+                # join into a single string
+                if isinstance(description, list):  
+                    description = " ".join(description)  
+
+                # If description is not a string (e.g., None, number, unexpected type),
+                #  convert it to a string
+                if not isinstance(description, str):  
+                    description = str(description)  
+
+                # Format the text to wrap lines at 80 characters for better readability
+                description = textwrap.fill(description, width=80)
 
             except json.JSONDecodeError:
                 extracted_info = "<p style='color: red;'>Error: Invalid JSON response.</p>"
