@@ -14,11 +14,11 @@ API_KEY = "AIzaSyB9YAQGtQkvbZ3dWdd7tF63eLts4ubXwro"  # Replace with your actual 
 
 def describe_image(image, api_key):
     """
-    Uses Gemini 1.5 Flash to analyze an image and extract species details.
+    Uses Gemini 2.5 Flash to analyze an image and extract species details.
     """
     try:
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel(model_name='gemini-1.5-flash', 
+        model = genai.GenerativeModel(model_name='gemini-2.5-flash', 
         generation_config={"response_mime_type": "application/json"})
 
         prompt = """ This image contains possible animals in Namibia Desert at a waterhole. 
@@ -121,3 +121,4 @@ def index():
 if __name__ == "__main__":
     print("🚀 Starting Flask app... Visit http://127.0.0.1:5000/")
     app.run(debug=True)
+
