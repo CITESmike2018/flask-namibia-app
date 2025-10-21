@@ -1,0 +1,14 @@
+# Web framework
+Flask  
+
+# Google AI API for Gemini
+google-generativeai  
+
+# Image processing
+Pillow  
+
+# Data handling
+pandas  
+
+# Production WSGI server (required for deployment)
+gunicorn  

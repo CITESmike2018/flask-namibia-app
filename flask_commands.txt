@@ -1,0 +1,46 @@
+============================================================
+ FLASK NAMIBIA APP - COMMAND REFERENCE
+============================================================
+
+1. Go to your Flask project directory
+------------------------------------------------------------
+cd C:\Users\mkshatriya\Documents\flask-namibia-app
+
+
+2. Activate your conda environment
+------------------------------------------------------------
+conda activate gemini-waterhole-pip
+
+
+3. Open your app.py file in Notepad to make changes
+------------------------------------------------------------
+notepad app.py
+(After editing, press Ctrl + S to save, then close Notepad)
+
+
+4. Run Flask manually to test your changes
+------------------------------------------------------------
+set FLASK_APP=app.py
+set FLASK_ENV=development
+flask run
+(Then open http://127.0.0.1:5000 in your browser)
+
+
+5. Stop Flask when finished testing
+------------------------------------------------------------
+Press CTRL + C in the command window
+
+
+6. Deactivate the conda environment
+------------------------------------------------------------
+conda deactivate
+
+
+7. Run Flask automatically using the batch file
+------------------------------------------------------------
+cd C:\Users\mkshatriya\Documents\flask-namibia-app
+run_flask.bat
+
+============================================================
+END OF FILE
+============================================================

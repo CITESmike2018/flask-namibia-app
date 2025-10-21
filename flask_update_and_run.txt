@@ -1,0 +1,54 @@
+============================================================
+ FLASK NAMIBIA APP - UPDATE & RUN WORKFLOW
+============================================================
+
+1. Stop Flask if it is currently running
+------------------------------------------------------------
+Press CTRL + C in the command window
+You should see: "Flask shutting down..."
+
+2. Open your Flask project directory
+------------------------------------------------------------
+cd C:\Users\mkshatriya\Documents\flask-namibia-app
+
+3. Activate your conda environment
+------------------------------------------------------------
+conda activate gemini-waterhole-pip
+(You should see your prompt change to include (gemini-waterhole-pip))
+
+4. Enable development mode for automatic reloads
+------------------------------------------------------------
+set FLASK_ENV=development
+
+5. Run Flask
+------------------------------------------------------------
+flask run
+(You’ll see: Running on http://127.0.0.1:5000)
+
+6. Test your changes
+------------------------------------------------------------
+Open your browser and visit:
+http://127.0.0.1:5000
+
+7. Make more changes to your app.py file
+------------------------------------------------------------
+notepad app.py
+(Edit → Save → Close)
+Flask will automatically reload when you save if you’re in development mode.
+
+8. Stop Flask when done
+------------------------------------------------------------
+Press CTRL + C to stop the server.
+
+9. Deactivate the environment
+------------------------------------------------------------
+conda deactivate
+
+============================================================
+ NOTES:
+------------------------------------------------------------
+- You don’t need to restart Flask for every small change if you use
+  "set FLASK_ENV=development" (auto reloads on save).
+- Keep two windows open: one for editing (Notepad) and one for running Flask.
+- Always stop Flask (CTRL + C) before closing the command window.
+============================================================
